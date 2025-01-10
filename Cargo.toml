@@ -1,4 +1,21 @@
 [package]
 name = "exemplars"
-version = "0.1.0"
+version = "0.0.0"
 edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Trait for providing examples of a type"
+homepage = "https://github.com/Kinrany/exemplars"
+repository = "https://github.com/Kinrany/exemplars.git"
+readme = "README.md"
+keywords = ["example", "no_std"]
+categories = [
+    "development-tools::debugging",
+    "development-tools::testing",
+    "no-std::no-alloc",
+    "rust-patterns",
+]
+
+[features]
+default = ["std"]
+std = ["alloc"]
+alloc = []
