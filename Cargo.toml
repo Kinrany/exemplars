@@ -19,3 +19,7 @@ categories = [
 default = ["std"]
 std = ["alloc"]
 alloc = []
+uuid = ["dep:uuid"]
+
+[dependencies]
+uuid = { version = "1.11.1", optional = true, default-features = false }

@@ -55,7 +55,7 @@ impl<T: Exemplars> Exemplars for Option<T> {
 mod alloc {
     extern crate alloc;
 
-    use super::Exemplars;
+    use crate::Exemplars;
 
     impl Exemplars for alloc::string::String {
         fn exemplars() -> impl IntoIterator<Item = Self> {
@@ -73,4 +73,17 @@ mod alloc {
 #[cfg(feature = "std")]
 mod std {
     extern crate std;
+}
+
+#[cfg(feature = "uuid")]
+mod uuid {
+    use ::uuid::Uuid;
+
+    use crate::Exemplars;
+
+    impl Exemplars for Uuid {
+        fn exemplars() -> impl IntoIterator<Item = Self> {
+            [Uuid::max()]
+        }
+    }
 }
