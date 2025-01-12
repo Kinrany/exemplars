@@ -16,10 +16,12 @@ categories = [
 ]
 
 [features]
-default = ["std"]
-std = ["alloc"]
 alloc = []
+default = ["std"]
+rust_decimal = ["dep:rust_decimal"]
+std = ["alloc"]
 uuid = ["dep:uuid"]
 
 [dependencies]
+rust_decimal = { version = "1.36.0", default-features = false, optional = true }
 uuid = { version = "1.11.1", optional = true, default-features = false }

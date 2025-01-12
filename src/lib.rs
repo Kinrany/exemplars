@@ -75,15 +75,16 @@ mod std {
     extern crate std;
 }
 
+#[cfg(feature = "rust_decimal")]
+impl Exemplars for ::rust_decimal::Decimal {
+    fn exemplars() -> impl IntoIterator<Item = Self> {
+        [Self::ONE]
+    }
+}
+
 #[cfg(feature = "uuid")]
-mod uuid {
-    use ::uuid::Uuid;
-
-    use crate::Exemplars;
-
-    impl Exemplars for Uuid {
-        fn exemplars() -> impl IntoIterator<Item = Self> {
-            [Uuid::max()]
-        }
+impl Exemplars for ::uuid::Uuid {
+    fn exemplars() -> impl IntoIterator<Item = Self> {
+        [Self::max()]
     }
 }
