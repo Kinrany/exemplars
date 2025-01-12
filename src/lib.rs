@@ -75,6 +75,20 @@ mod std {
     extern crate std;
 }
 
+#[cfg(feature = "bigdecimal_03")]
+impl Exemplars for ::bigdecimal_03::BigDecimal {
+    fn exemplars() -> impl IntoIterator<Item = Self> {
+        [<Self as ::bigdecimal_03::One>::one()]
+    }
+}
+
+#[cfg(feature = "bigdecimal_04")]
+impl Exemplars for ::bigdecimal_04::BigDecimal {
+    fn exemplars() -> impl IntoIterator<Item = Self> {
+        [<Self as ::bigdecimal_04::One>::one()]
+    }
+}
+
 #[cfg(feature = "rust_decimal")]
 impl Exemplars for ::rust_decimal::Decimal {
     fn exemplars() -> impl IntoIterator<Item = Self> {

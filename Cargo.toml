@@ -17,11 +17,15 @@ categories = [
 
 [features]
 alloc = []
+bigdecimal_03 = ["dep:bigdecimal_03"]
+bigdecimal_04 = ["dep:bigdecimal_04"]
 default = ["std"]
 rust_decimal = ["dep:rust_decimal"]
 std = ["alloc"]
 uuid = ["dep:uuid"]
 
 [dependencies]
+bigdecimal_03 = { version = "0.3.1", package = "bigdecimal", default-features = false, optional = true }
+bigdecimal_04 = { version = "0.4.7", package = "bigdecimal", default-features = false, optional = true }
 rust_decimal = { version = "1.36.0", default-features = false, optional = true }
-uuid = { version = "1.11.1", optional = true, default-features = false }
+uuid = { version = "1.11.1", default-features = false, optional = true }
